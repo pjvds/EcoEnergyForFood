@@ -7,16 +7,23 @@ namespace Domain
     public class Customer : AggregateRootMappedByConvention
     {
         private string _name;
-        private DateTime _birthDate;
+        private DateTime? _birthDate;
+
+        public Guid CustomerId
+        {
+            get { return EventSourceId; }
+        }
 
         protected Customer()
         {
             // DO NOT USE.
         }
 
-        public Customer(string name, DateTime birthDate)
+        public Customer(Guid customerId, string name, DateTime? birthDate)
         {
-            var e = new CustomerCreated{ Name = name, BirthDate = birthDate };
+            EventSourceId = customerId;
+
+            var e = new CustomerCreated{ CustomerId = customerId, Name = name, BirthDate = birthDate };
             ApplyEvent(e);
         }
 

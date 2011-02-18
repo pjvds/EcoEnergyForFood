@@ -1,0 +1,51 @@
+﻿@inherits System.Web.Mvc.WebViewPage<Website.Models.CustomerModel>
+
+@{
+    View.Title = "Add";
+    LayoutPage = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add</h2>
+
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Fields</legend>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CustomerId)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CustomerId)
+                @Html.ValidationMessageFor(model => model.CustomerId)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BirthDate)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.BirthDate)
+                @Html.ValidationMessageFor(model => model.BirthDate)
+            </div>
+            
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+
