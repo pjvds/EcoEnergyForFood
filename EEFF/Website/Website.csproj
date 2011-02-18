@@ -69,6 +69,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Denormalizers\CustomerCreatedDenormalizer.cs" />
+    <Compile Include="Denormalizers\CustomerNameChangedDenormalizer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -132,6 +133,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Views\Customer\Add.cshtml" />
+    <None Include="Views\Customer\ChangeName.cshtml" />
     <None Include="Views\Customer\List.cshtml" />
   </ItemGroup>
   <ItemGroup>

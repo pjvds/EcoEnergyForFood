@@ -32,5 +32,20 @@ namespace Website.Controllers
                 return View(customers);
             }
         }
+
+        public ActionResult ChangeName(Guid customerId)
+        {
+            var command = new ChangeNameOfCustomer{CustomerId = customerId, NewName = new WebsiteReadModelDataContext().CustomerModels.First(c=>c.CustomerId==customerId).Name};
+
+            return View(command);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeName(ChangeNameOfCustomer command)
+        {
+            WebsiteApplication.TheCommandService.Execute(command);
+
+            return View();
+        }
     }
 }

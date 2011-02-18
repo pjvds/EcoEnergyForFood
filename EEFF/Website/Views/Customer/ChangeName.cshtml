@@ -1,0 +1,43 @@
+﻿@inherits System.Web.Mvc.WebViewPage<Commands.ChangeNameOfCustomer>
+
+@{
+    View.Title = "Change name of customer";
+    LayoutPage = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ChangeName</h2>
+
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Fields</legend>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CustomerId)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CustomerId)
+                @Html.ValidationMessageFor(model => model.CustomerId)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.NewName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.NewName)
+                @Html.ValidationMessageFor(model => model.NewName)
+            </div>
+            
+            <p>
+                <input type="submit" value="Change the name" />
+            </p>
+        </fieldset>
+
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+
